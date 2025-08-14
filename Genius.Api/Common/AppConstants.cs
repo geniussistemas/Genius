@@ -7,12 +7,12 @@ namespace Genius.Api.Common;
 
 public static class AppConstants
 {
-    public static string CorsPolicyName = "wasm";   // O nome é indiferente
+    public const string CorsPolicyName = "wasm";   // O nome é indiferente
 
-    public static string DefaultBackendUrl = "http://localhost:8081";
-    public static string DefaultBackendHost = "localhost";
-    public static int DefaultBackendPort = 8080;
+    public const string DefaultBackendUrl = "http://localhost:8081";
+    public const string DefaultBackendHost = "localhost";
+    public const int DefaultBackendPort = 8080;
 
-    public static string DefaultQRCodeApiUrl = "http://localhost:8082";
+    public const string DefaultQRCodeApiUrl = "http://localhost:8082";
 
 }

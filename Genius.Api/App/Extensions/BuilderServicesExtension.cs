@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Genius.Api.Application.Abstractions;
 using Genius.Api.InterfaceAdapters.Controllers;
 using Genius.Infraestructure.Frameworks.Logging;
-using Genius.Api.Infraestructure.Gateways;
+using Genius.Api.Infraestructure.Persistence;
 
 
 namespace Genius.Api.App.Extensions;
@@ -16,9 +12,10 @@ public static class BuilderServicesExtension
     {
         // Infraestrutura
         builder.Services.AddSingleton<SerilogLoggerAdapter, SerilogLoggerAdapter>();
-        builder.Services.AddSingleton<IQRCodeWebSocketGateway, QRCodeWebSocketGateway>();
+        builder.Services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository>();
 
-        // Interface Adapters
+        // Adiciona todos os serviços relacionados ao WebSocket do QRCode (Gateway, Handler, Connector)
+        builder.AddQRCodeWebSocketServices();
 
         // Exemplo (Controllers de endpoints)
         builder.Services.AddTransient<ITicketsController, TicketsController>();

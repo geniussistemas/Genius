@@ -18,18 +18,19 @@ public class QRCodeWebSocketGateway : IQRCodeWebSocketGateway
     private ClientWebSocket _client;
     private readonly Uri _serverUri;
     private readonly string _facilityId;
+    private readonly int _timeToReconnectInMs;
 
     ILoggerAdapter _logger;
 
-    private const int TimeBetweenTries = 5000; // 5 segundos
     private const int BufferSize = (1024 * 4); // 4KB
 
-    public QRCodeWebSocketGateway(ILoggerAdapter logger, string serverUrl, string facilityId)
+    public QRCodeWebSocketGateway(ILoggerAdapter logger, string serverUrl, string facilityId, int timeToReconnectInSeconds)
     {
         _client = new ClientWebSocket();
-        _serverUri = new Uri($"{serverUrl}?facilityId={_facilityId}");
         _facilityId = facilityId;
         _logger = logger;
+        _timeToReconnectInMs = timeToReconnectInSeconds * 1000;
+        _serverUri = new Uri($"{serverUrl}?facilityId={_facilityId}");
     }
 
     public async Task ConnectAndListenAsync(CancellationToken cancellationToken)
@@ -49,11 +50,11 @@ public class QRCodeWebSocketGateway : IQRCodeWebSocketGateway
             }
             catch (WebSocketException ex)
             {
-                _logger.Error("[Facility {facilityId}] Erro de WebSocket: {ex.Message}. Tentando reconectar em {TimeBetweenTries}5 segundos...", _facilityId, ex.Message, TimeBetweenTries / 1000);
+                _logger.Error("[Facility {facilityId}] Erro de WebSocket: {ex.Message}. Tentando reconectar em {timeToReconnect} segundos...", _facilityId, ex.Message, _timeToReconnectInMs / 1000);
             }
             catch (Exception ex)
             {
-                _logger.Error("[Facility {facilityId}] Erro inesperado: {ex.Message}. Tentando reconectar em {TimeBetweenTries} segundos...", _facilityId, ex.Message, TimeBetweenTries / 1000);
+                _logger.Error("[Facility {facilityId}] Erro inesperado: {ex.Message}. Tentando reconectar em {timeToReconnect} segundos...", _facilityId, ex.Message, _timeToReconnectInMs / 1000);
             }
             finally
             {
@@ -68,7 +69,7 @@ public class QRCodeWebSocketGateway : IQRCodeWebSocketGateway
                 _client = new ClientWebSocket();
             }
 
-            await Task.Delay(TimeBetweenTries, cancellationToken); // Espera 5 segundos antes de tentar reconectar
+            await Task.Delay(_timeToReconnectInMs, cancellationToken); // Espera antes de tentar reconectar
         }
     }
 

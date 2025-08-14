@@ -15,22 +15,18 @@ namespace Genius.Api.InterfaceAdapters.MessageHandlers;
 /// </summary>
 public class QRCodeWebSocketMessageHandler // Ou QRCodeWebSocketController
 {
-    private readonly IQRCodeWebSocketGateway _gateway;
     private readonly ILoggerAdapter _logger;
 
     // Adicionar Use Cases aqui
     // private readonly IQRCodeProcessMessageUseCase _qrcodeProcessMessageUseCase;
 
-    public QRCodeWebSocketMessageHandler(IQRCodeWebSocketGateway gateway, /*IQRCodeProcessMessageUseCase qrcodeProcessMessageUseCase, */ILoggerAdapter logger)
+    public QRCodeWebSocketMessageHandler(IQRCodeEventNotifier eventNotifier, /*IQRCodeProcessMessageUseCase qrcodeProcessMessageUseCase, */ILoggerAdapter logger)
     {
-        // Gateway responsável por escutar a conexão WebSocket
-        _gateway = gateway;
-
         // Casos de uso chamados pelo MessageHandler
         // _qrcodeProcessMessageUseCase = qrcodeProcessMessageUseCase;
 
         // O MessageHandler se inscreve no evento do gateway
-        _gateway.OnMessageReceived += HandleMessageAsync;
+        eventNotifier.OnMessageReceived += HandleMessageAsync;
 
         _logger = logger;
     }

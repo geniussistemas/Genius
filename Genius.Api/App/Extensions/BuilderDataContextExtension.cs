@@ -1,9 +1,5 @@
-using System;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Genius.Api.Data;
+using Genius.Api.Infraestructure.Persistence;
 
 namespace Genius.Api.App.Extensions;
 
@@ -15,7 +11,8 @@ public static class BuilderDataContextExtension
             .AddDbContext<AppDbContext>(
                 options =>
                 {
-                    options.UseSqlServer(Configuration.ConnectionString);
+                    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+                    options.UseSqlServer(connectionString);
                 });
 
         return builder;
