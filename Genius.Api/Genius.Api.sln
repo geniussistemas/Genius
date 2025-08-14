@@ -1,0 +1,60 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.App", "App\Genius.Api.App.csproj", "{EF80361D-D59C-12AD-63DD-FB134225EB7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.Application", "Application\Genius.Api.Application.csproj", "{E009F2E1-B8E7-3E6F-FED3-AD009AB1CEB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.Common", "Common\Genius.Api.Common.csproj", "{94C72758-0C7C-ABE7-2CFA-F6C5C55371BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.Domain", "Domain\Genius.Api.Domain.csproj", "{5D558C8A-8083-C721-9B8C-C686AB4BDDCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.Infraestructure", "Infraestructure\Genius.Api.Infraestructure.csproj", "{675D60F2-19BC-80FD-D843-7CE8A6FF5BF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.InterfaceAdapters", "InterfaceAdapters\Genius.Api.InterfaceAdapters.csproj", "{7785ECB9-9714-AD9E-7261-61AB4A6B89F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.Tests", "Tests\Genius.Api.Tests.csproj", "{19821241-7829-988B-C95A-4A451EBE48F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF80361D-D59C-12AD-63DD-FB134225EB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF80361D-D59C-12AD-63DD-FB134225EB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF80361D-D59C-12AD-63DD-FB134225EB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF80361D-D59C-12AD-63DD-FB134225EB7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E009F2E1-B8E7-3E6F-FED3-AD009AB1CEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E009F2E1-B8E7-3E6F-FED3-AD009AB1CEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E009F2E1-B8E7-3E6F-FED3-AD009AB1CEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E009F2E1-B8E7-3E6F-FED3-AD009AB1CEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C72758-0C7C-ABE7-2CFA-F6C5C55371BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C72758-0C7C-ABE7-2CFA-F6C5C55371BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C72758-0C7C-ABE7-2CFA-F6C5C55371BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C72758-0C7C-ABE7-2CFA-F6C5C55371BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D558C8A-8083-C721-9B8C-C686AB4BDDCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D558C8A-8083-C721-9B8C-C686AB4BDDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D558C8A-8083-C721-9B8C-C686AB4BDDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D558C8A-8083-C721-9B8C-C686AB4BDDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{675D60F2-19BC-80FD-D843-7CE8A6FF5BF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{675D60F2-19BC-80FD-D843-7CE8A6FF5BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{675D60F2-19BC-80FD-D843-7CE8A6FF5BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{675D60F2-19BC-80FD-D843-7CE8A6FF5BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7785ECB9-9714-AD9E-7261-61AB4A6B89F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7785ECB9-9714-AD9E-7261-61AB4A6B89F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7785ECB9-9714-AD9E-7261-61AB4A6B89F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7785ECB9-9714-AD9E-7261-61AB4A6B89F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19821241-7829-988B-C95A-4A451EBE48F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19821241-7829-988B-C95A-4A451EBE48F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19821241-7829-988B-C95A-4A451EBE48F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19821241-7829-988B-C95A-4A451EBE48F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D05D84D-DE4C-448B-A099-633144B08408}
+	EndGlobalSection
+EndGlobal

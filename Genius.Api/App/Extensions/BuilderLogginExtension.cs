@@ -1,6 +1,6 @@
 using Genius.Common.Abstractions;
 using Genius.Common.Lib;
-using Genius.Inftaestructure.Frameworks.Logging;
+using Genius.Infraestructure.Frameworks.Logging;
 using Serilog;
 using System;
 using System.Collections.Generic;

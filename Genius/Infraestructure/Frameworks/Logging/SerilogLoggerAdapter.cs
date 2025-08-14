@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Genius.Common.Lib;
 
-namespace Genius.Inftaestructure.Frameworks.Logging;
+namespace Genius.Infraestructure.Frameworks.Logging;
 
 public class SerilogLoggerAdapter : ILoggerAdapter
 {
