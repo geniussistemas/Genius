@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Genius.Api.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

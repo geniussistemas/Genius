@@ -10,7 +10,10 @@ public class EstacionamentoRepository(AppDbContext context) : IEstacionamentoRep
     public async Task<string?> GetIdUnicoUnidadeAsync()
     {
         // Busca o primeiro (e presumivelmente único) registro da tabela de Estacionamento.
-        var estacionamento = await _context.Estacionamento.FirstOrDefaultAsync(estac => estac.Id > 0);
+        // Adicionar OrderBy evita mensagem de alerta do Entity Framework Core.
+        var estacionamento = await _context.Estacionamento
+            .OrderBy(c => c.Id)
+            .FirstOrDefaultAsync();
         return estacionamento?.IdUnicoUnidade;
     }
 }

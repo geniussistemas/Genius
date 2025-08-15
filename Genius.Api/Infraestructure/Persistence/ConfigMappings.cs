@@ -1,30 +1,30 @@
-using Genius.Api.Domain.Models;
+﻿using Genius.Api.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Genius.Api.Infraestructure.Persistence;
 
-public static class EstacionamentoMappings
+public class ConfigMappings
 {
     public static void Execute(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Estacionamento>(entity =>
+        modelBuilder.Entity<Config>(entity =>
         {
             // Define o nome da tabela no banco de dados
-            entity.ToTable("T_ESTACIONAMENTO");
+            entity.ToTable("T_CONFIG");
 
             // A tabela ainda não tem chave primária
             // // Configura a chave primária
             // entity.HasKey(s => s.Id);
 
             entity.Property(s => s.Id)
-                .HasColumnName("EST_CD_ESTACIONAMENTO")
+                .HasColumnName("CNF_CD_REGISTRO")
                 .HasColumnType("INT")
                 .IsRequired();
 
-            entity.Property(s => s.IdUnicoUnidade)
-                .HasColumnName("EST_ID_UNICO_UNIDADE")
-                .HasColumnType("VARCHAR(100)");
+            entity.Property(s => s.EntradaSaidaAvulsoLpr)
+                .HasColumnName("CNF_ENTRADA_SAIDA_LPR")
+                .HasColumnType("INT");
         });
 
-    }
+    }    
 }
