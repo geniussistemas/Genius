@@ -14,6 +14,9 @@ packages/
 *.suo
 *.user
 
+# Arquivos de configuração do Rider
+.idea/
+
 # Arquivos de cache e temporários
 *.cache
 *.tmp
