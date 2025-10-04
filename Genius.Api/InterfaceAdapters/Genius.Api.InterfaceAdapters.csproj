@@ -12,12 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Tickets\" />
+    <ProjectReference Include="..\..\Genius\Common\Genius.Common.csproj" />
+    <ProjectReference Include="..\..\Genius\Infraestructure\Genius.Infraestructure.csproj" />
+    <ProjectReference Include="..\..\Genius.Api\Application\Genius.Api.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Genius\Common\Genius.Common.csproj" />
-    <ProjectReference Include="..\..\Genius\Inftaestructure\Genius.Inftaestructure.csproj" />
+    <Folder Include="Gateways\" />
+    <Folder Include="MessageHandlers\" />
   </ItemGroup>
 
 </Project>

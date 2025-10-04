@@ -6,6 +6,7 @@ using Genius.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddLogging()
+       .AddConfiguration()
        .AddArchitectures()
        .AddDataContexts()
        .AddCrossOrigin()

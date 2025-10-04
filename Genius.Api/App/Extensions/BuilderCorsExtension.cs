@@ -1,4 +1,5 @@
 using Genius.Api.Common;
+using Genius.Api.Infraestructure.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,10 @@ public static class BuilderCorsExtension
 {
     public static WebApplicationBuilder AddCrossOrigin(this WebApplicationBuilder builder)
     {
+        var settings = builder.Configuration
+            .GetSection(ApplicationSettings.SectionName)
+            .Get<ApplicationSettings>();
+        
         builder.Services.AddCors(
             options => options.AddPolicy(
                         AppConstants.CorsPolicyName,
@@ -20,8 +25,7 @@ public static class BuilderCorsExtension
                                // Por enquanto libera acesso a todos os domínios
                                // considerando que está sendo executado em rede interna
                                .WithOrigins([
-                                   Configuration.QRCodeApiUrl,
-                                   Configuration.BackendUrl,
+                                   settings?.BackendUrl ?? "",
                                    ])
                                .AllowCredentials()
                                .AllowAnyMethod()

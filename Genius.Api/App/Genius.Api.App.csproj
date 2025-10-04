@@ -12,6 +12,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
@@ -19,9 +20,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Genius\Common\Genius.Common.csproj" />
-    <ProjectReference Include="..\..\Genius\Inftaestructure\Genius.Inftaestructure.csproj" />
+    <ProjectReference Include="..\..\Genius\Infraestructure\Genius.Infraestructure.csproj" />
     <ProjectReference Include="..\Common\Genius.Api.Common.csproj" />
     <ProjectReference Include="..\InterfaceAdapters\Genius.Api.InterfaceAdapters.csproj" />
+    <ProjectReference Include="..\Infraestructure\Genius.Api.Infraestructure.csproj" />
+    <ProjectReference Include="..\Application\Genius.Api.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infraestructure\" />
   </ItemGroup>
 
 </Project>

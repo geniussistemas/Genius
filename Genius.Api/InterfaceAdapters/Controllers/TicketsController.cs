@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using System.Reflection.Metadata.Ecma335;
 using Genius.Common.Api.DTO;
 using System.Runtime.CompilerServices;
-using Genius.Inftaestructure.Frameworks.Logging;
+using Genius.Infraestructure.Frameworks.Logging;
 using Genius.Common.Abstractions;
 
 namespace Genius.Api.InterfaceAdapters.Controllers;
