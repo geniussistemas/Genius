@@ -17,4 +17,9 @@
     <ProjectReference Include="..\..\Genius.Api\Application\Genius.Api.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Gateways\" />
+    <Folder Include="MessageHandlers\" />
+  </ItemGroup>
+
 </Project>

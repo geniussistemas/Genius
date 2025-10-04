@@ -14,9 +14,6 @@ public static class BuilderServicesExtension
         builder.Services.AddSingleton<SerilogLoggerAdapter, SerilogLoggerAdapter>();
         builder.Services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository>();
 
-        // Adiciona todos os serviços relacionados ao WebSocket do QRCode (Gateway, Handler, Connector)
-        builder.AddQRCodeWebSocketServices();
-
         // Exemplo (Controllers de endpoints)
         builder.Services.AddTransient<ITicketsController, TicketsController>();
 
