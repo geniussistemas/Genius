@@ -1,4 +1,5 @@
-namespace Genius.QRCode.Api.Infraestructure.Settings;
+/*
+namespace Genius.Api.Infraestructure.Settings;
 
 /// <summary>
 /// Configurações específicas para a funcionalidade de QRCode.
@@ -10,3 +11,4 @@ public class QRCodeSettings
     public string WebSocketServerUrl { get; set; } = string.Empty;
     public int TimeToReconectInSeconds { get; set; } = TimeToReconectInSecondsDefault;
 }
+*/

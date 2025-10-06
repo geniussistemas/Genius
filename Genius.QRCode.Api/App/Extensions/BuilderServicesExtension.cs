@@ -15,7 +15,7 @@ public static class BuilderServicesExtension
         builder.Services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository>();
 
         // Adiciona todos os serviços relacionados às conexões com os estacionamentos (Gateway, Handler, Connector)
-        builder.AddBackendConnectionServices();
+        builder.AddWebSocketConnectionServices();
 
         // Exemplo (Controllers de endpoints)
         builder.Services.AddTransient<ITicketsController, TicketsController>();

@@ -1,8 +1,8 @@
-using Genius.QRCode.Api;
 using Genius.QRCode.Api.App.Endpoints;
 using Genius.QRCode.Api.Common;
-using Genius.QRCode.Api.Contexts.TicketContext;
-//using Genius.QRCode.Api.App.Extensions;
+using Genius.QRCode.Api.Infraestructure.Settings;
+using Microsoft.Extensions.Options;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddLogging()
@@ -12,16 +12,21 @@ builder.AddLogging()
        .AddCrossOrigin()
        .AddDocumentation()
        .AddServices()
-       .AddContexts();
+       .AddContexts()
+       .AddOptions();
 
 var app = builder.Build();
+
+var applicationSettings = app.Services.GetRequiredService<IOptions<ApplicationSettings>>().Value;
 
 app.ConfigureEnvironment()
    .UseLogging()
    .UseArchitectures()
    .UseServices()
    .UseContexts()
-   .MapEndpoints()
+   .MapEndpoints(applicationSettings)
    .UseCors(AppConstants.CorsPolicyName);
 
 app.Run();
+
+

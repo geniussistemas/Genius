@@ -27,4 +27,8 @@
     <ProjectReference Include="..\Application\Genius.QRCode.Api.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Infraestructure\" />
+  </ItemGroup>
+
 </Project>
