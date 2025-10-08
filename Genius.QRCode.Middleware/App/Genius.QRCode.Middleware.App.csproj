@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Genius\Common\Genius.Common.csproj" />
+    <ProjectReference Include="..\..\Genius\Infraestructure\Genius.Infraestructure.csproj" />
+    <ProjectReference Include="..\Common\Genius.QRCode.Middleware.Common.csproj" />
+    <ProjectReference Include="..\InterfaceAdapters\Genius.QRCode.Middleware.InterfaceAdapters.csproj" />
+    <ProjectReference Include="..\Infraestructure\Genius.QRCode.Middleware.Infraestructure.csproj" />
+    <ProjectReference Include="..\Application\Genius.QRCode.Middleware.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Infraestructure\" />
+  </ItemGroup>
+
+</Project>
