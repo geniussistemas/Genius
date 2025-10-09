@@ -1,7 +1,7 @@
-using Genius.QRCode.Api.Application.Abstractions;
+using Genius.Application.Abstractions;
 using Genius.QRCode.Api.InterfaceAdapters.Controllers;
 using Genius.Infraestructure.Frameworks.Logging;
-using Genius.QRCode.Api.Infraestructure.Persistence;
+using Genius.Infraestructure.Persistence;
 
 
 namespace Genius.QRCode.Api.App.Extensions;

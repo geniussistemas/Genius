@@ -1,5 +1,5 @@
 using Genius.QRCode.Api.Domain.Models;
-using Genius.QRCode.Api.Infraestructure.Persistence;
+using Genius.Infraestructure.Persistence;
 using Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
