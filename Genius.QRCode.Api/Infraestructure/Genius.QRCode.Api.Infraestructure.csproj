@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Genius\Domain\Genius.Domain.csproj" />
     <ProjectReference Include="..\Common\Genius.QRCode.Api.Common.csproj" />
     <ProjectReference Include="..\InterfaceAdapters\Genius.QRCode.Api.InterfaceAdapters.csproj" />
     <ProjectReference Include="..\Domain\Genius.QRCode.Api.Domain.csproj" />
