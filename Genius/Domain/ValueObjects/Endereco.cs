@@ -1,4 +1,4 @@
-﻿namespace Genius.QRCode.Api.Domain.ValueObjects;
+﻿namespace Genius.Domain.ValueObjects;
 
 public class Endereco
 {
