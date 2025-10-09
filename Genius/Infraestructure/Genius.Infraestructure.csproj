@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\Genius.Application.csproj" />
     <ProjectReference Include="..\Common\Genius.Common.csproj" />
     <ProjectReference Include="..\Domain\Genius.Domain.csproj" />
   </ItemGroup>
