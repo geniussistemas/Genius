@@ -2,7 +2,7 @@ using Genius.Application.Abstractions;
 using Genius.QRCode.Api.InterfaceAdapters.Controllers;
 using Genius.Infraestructure.Frameworks.Logging;
 using Genius.Infraestructure.Persistence;
-
+using Genius.QRCode.Api.App.Infraestructure.Persistence;
 
 namespace Genius.QRCode.Api.App.Extensions;
 
@@ -12,7 +12,7 @@ public static class BuilderServicesExtension
     {
         // Infraestrutura
         builder.Services.AddSingleton<SerilogLoggerAdapter, SerilogLoggerAdapter>();
-        builder.Services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository>();
+        builder.Services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository<AppDbContext>>();
 
         // Adiciona todos os serviços relacionados às conexões com os estacionamentos (Gateway, Handler, Connector)
         builder.AddWebSocketConnectionServices();

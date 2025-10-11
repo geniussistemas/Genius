@@ -1,5 +1,5 @@
+using Genius.QRCode.Api.App.Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Genius.QRCode.Api.Infraestructure.Persistence;
 
 namespace Genius.QRCode.Api.App.Extensions;
 
