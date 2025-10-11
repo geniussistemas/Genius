@@ -1,17 +1,17 @@
 using Genius.Application.Abstractions;
+using Genius.Infraestructure.Persistence.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Genius.Infraestructure.Persistence;
 
-public class EstacionamentoRepository(AppDbContext context) : IEstacionamentoRepository
+public class EstacionamentoRepository<TContext>(TContext context) : IEstacionamentoRepository
+    where TContext : DbContext, ICommonAppDbContext
 {
-    private readonly AppDbContext _context = context;
-
     public async Task<string?> GetIdUnicoUnidadeAsync()
     {
         // Busca o primeiro (e presumivelmente único) registro da tabela de Estacionamento.
         // Adicionar OrderBy evita mensagem de alerta do Entity Framework Core.
-        var estacionamento = await _context.Estacionamento
+        var estacionamento = await context.Estacionamento
             .OrderBy(c => c.Id)
             .FirstOrDefaultAsync();
         return estacionamento?.IdUnicoUnidade;
