@@ -1,4 +1,4 @@
-using Genius.QRCode.Middleware.App.Infraestructure;
+using Genius.Application.Abstractions;
 using Genius.QRCode.Middleware.Application.Abstractions;
 using Genius.QRCode.Middleware.Infraestructure.Gateways;
 using Genius.QRCode.Middleware.Infraestructure.Settings;

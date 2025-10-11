@@ -1,13 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Genius.Application.Abstractions;
+using Genius.Infraestructure.Frameworks.Logging;
+using Genius.Infraestructure.Persistence;
 using Genius.QRCode.Middleware.Application.Abstractions;
 using Genius.QRCode.Middleware.InterfaceAdapters.Controllers;
-using Genius.Infraestructure.Frameworks.Logging;
 using Genius.QRCode.Middleware.Infraestructure.Persistence;
 using Genius.QRCode.Middleware.Infraestructure.Gateways;
-
 
 namespace Genius.QRCode.Middleware.App.Extensions;
 
@@ -17,7 +14,7 @@ public static class BuilderServicesExtension
     {
         // Infraestrutura
         builder.Services.AddSingleton<SerilogLoggerAdapter, SerilogLoggerAdapter>();
-        builder.Services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository>();
+        builder.Services.AddScoped<IEstacionamentoRepository, EstacionamentoRepository<AppDbContext>>();
         builder.Services.AddSingleton<IQRCodeWebSocketGateway, QRCodeWebSocketGateway>();
 
         // Interface Adapters
