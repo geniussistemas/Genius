@@ -36,6 +36,9 @@ public partial class Telefone
 
     public string Formatado()
     {
+        if (NumeroLocal is null)
+            return "";
+
         string prefixo = $"+{CodigoPais} ({Ddd})";
         if (NumeroLocal.Length == 9)
             return $"{prefixo} {NumeroLocal[..5]}-{NumeroLocal.Substring(5, 4)}";
@@ -50,7 +53,7 @@ public partial class Telefone
         return obj is Telefone telefone && Numero == telefone.Numero;
     }
 
-    public override int GetHashCode() => Numero.GetHashCode();
+    public override int GetHashCode() => Numero?.GetHashCode() ?? 0;
     
     [GeneratedRegex(@"^\+?(\d{1,3})\s?\(?(\d{2})\)?\s?(\d{4,5})-?(\d{4})$")]
     private static partial Regex MyRegex();
