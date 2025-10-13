@@ -4,10 +4,10 @@ namespace Genius.Domain.ValueObjects;
 
 public partial class Telefone
 {
-    public string Numero { get; private set; }
-    public string CodigoPais { get; private set; }
-    public string Ddd { get; private set; }
-    public string NumeroLocal { get; private set; }
+    public string? Numero { get; private set; }
+    public string? CodigoPais { get; private set; }
+    public string? Ddd { get; private set; }
+    public string? NumeroLocal { get; private set; }
 
     // Regex para validar número internacional: +55 (11) 91234-5678 ou +5511912345678
     private static readonly Regex RegexInternacional = MyRegex();
