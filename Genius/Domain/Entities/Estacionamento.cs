@@ -8,8 +8,8 @@ public class Estacionamento
     private string? _idUnicoUnidade;
     
     public int Id { get; set; }
-    public string Nome { get; set; }
-    public Endereco Endereco { get; set; }
+    public string Nome { get; set; } = string.Empty;
+    public Endereco? Endereco { get; set; }
     public Telefone? Telefone { get; set; }
     public string? Dizeres { get; set; }
     public string? Horario { get; set; }
@@ -22,7 +22,7 @@ public class Estacionamento
     public int? DiaPagamentoMensalidade { get; set; }
     public decimal? JurosMora {  get; set; }
     public decimal? JurosMulta { get; set; }
-    public CCM CCM { get; set; }
+    public CCM? CCM { get; set; }
     public CNPJ? CNPJ { get; set; }
     public ImagemExterna? Logotipo { get; set; }
     public int? TempoToleranciaMulta { get; set; }
