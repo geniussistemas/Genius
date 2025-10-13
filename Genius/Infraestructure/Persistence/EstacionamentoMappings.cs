@@ -122,7 +122,7 @@ public static class EstacionamentoMappings
             // CCM é um ValueObject
             entity.Property(s => s.CCM)
                 .HasConversion(
-                    ccm => ccm.Numero,
+                    ccm => (ccm == null ? null : ccm.Numero)!,
                     valor => new CCM(valor)
                     )
                 .HasColumnName("EST_NR_CCM")
