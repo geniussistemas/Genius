@@ -11,7 +11,9 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
     public DbSet<Config> Config { get; set; }
     public DbSet<Ticket> Ticket { get; set; }
     public DbSet<Pagamento> Pagamento { get; set; }
-    
+    public DbSet<TerminalCaixa> TerminaisCaixa { get; set; }
+    public DbSet<TerminalTipoEntidade> TerminalTipoEntidades { get; set; }
+
     protected CommonAppDbContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -20,6 +22,9 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
         ConfigMappings.Execute(modelBuilder);
         TicketMappings.Execute(modelBuilder);
         PagamentoMappings.Execute(modelBuilder);
+
+        TerminalCaixaMappings.Execute(modelBuilder);
+        TerminalTipoEntidadeMappings.Execute(modelBuilder);
     }
 }
 
