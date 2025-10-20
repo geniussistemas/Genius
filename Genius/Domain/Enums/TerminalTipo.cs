@@ -1,11 +1,12 @@
 ﻿namespace Genius.Domain.Enums
 {
-    public enum TerminalTipo
+    public enum TerminalTipo : byte
     {
-        Nao_definido,
-        Desktop,
+        Desktop = 1,
         Mobile,
         Totem,
-        Web
+        Web,
+        POS,
+        NaoDefinido = 99
     }
 }

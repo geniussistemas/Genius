@@ -9,4 +9,7 @@ public interface ICommonAppDbContext
     public DbSet<Config> Config { get; set; }
     public DbSet<Ticket> Ticket { get; set; }
     public DbSet<Pagamento> Pagamento { get; set; }
+
+    public DbSet<TerminalCaixa> TerminaisCaixa { get; set; }
+    public DbSet<TerminalTipoEntidade> TerminalTipoEntidades { get; set; }
 }
