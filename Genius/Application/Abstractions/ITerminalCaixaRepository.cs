@@ -8,7 +8,7 @@ namespace Genius.Application.Abstractions
         Task<TerminalCaixa?> ObterTerminalByNumeroAsync(int numeroTerminal);
         Task<int?> ObterUltimoNumeroTerminalAsync();
         Task<bool> NumeroTerminalExisteAsync(int numeroTerminal);
-
+        Task<bool> NomeTerminalExisteAsync(string nome);
 
     }
 }

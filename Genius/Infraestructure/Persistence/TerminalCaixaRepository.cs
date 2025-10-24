@@ -16,6 +16,16 @@ namespace Genius.Infraestructure.Persistence
             return terminalCaixa;
         }
 
+        public async Task<bool> NomeTerminalExisteAsync(string nome)
+        {
+            var result = await context
+                .TerminaisCaixa
+                .AsNoTracking()
+                .AnyAsync(t => t.Nome == nome);
+
+            return result;
+        }
+
         public async Task<bool> NumeroTerminalExisteAsync(int numeroTerminal)
         {
             var result = await context
