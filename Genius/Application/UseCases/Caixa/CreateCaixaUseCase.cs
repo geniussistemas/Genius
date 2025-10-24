@@ -4,7 +4,7 @@ using Genius.Domain.Entities;
 
 namespace Genius.Application.UseCases.Caixa
 {
-    public class CreateCaixaUseCase(ITerminalCaixaRepository repository) : ICreateCaixa
+    public class CreateCaixaUseCase(ITerminalCaixaRepository repository) : ICreateCaixaUseCase
     {
         public async Task<Result<TerminalCaixa>> ExecutarAsync(TerminalCaixa request)
         {

@@ -4,7 +4,7 @@ using Genius.Domain.Entities;
 
 namespace Genius.Application.UseCases.Caixa
 {
-    public interface ICreateCaixa : IUseCase<TerminalCaixa, Result<TerminalCaixa>>
+    public interface ICreateCaixaUseCase : IUseCase<TerminalCaixa, Result<TerminalCaixa>>
     {
     }
 }
