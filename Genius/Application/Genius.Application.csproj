@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Genius.Common.csproj" />
     <ProjectReference Include="..\Domain\Genius.Domain.csproj" />
   </ItemGroup>
 
