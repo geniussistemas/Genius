@@ -4,18 +4,12 @@ using Genius.Common.Lib.Results;
 
 namespace Genius.Application.UseCases.Caixa
 {
-    public class ObterTabelasPrecoSimplificadasUseCase(ITerminalCaixaRepository caixaRepo, ITabelaPrecoRepository tabelaRepo) : IObterTabelasPrecoSimplificadUseCase
+    public class ObterTabelasPrecoSimplificadasUseCase(ITabelaPrecoRepository tabelaRepo) : IObterTabelasPrecoSimplificadUseCase
     {
-        public async Task<Result<IList<TabelaPrecoSimplificada>>> ExecutarAsync(int numeroTerminal)
+        public async Task<Result<IList<TabelaPrecoSimplificada>>> ExecutarAsync()
         {
             try
             {
-                if (!await caixaRepo.NumeroTerminalExisteAsync(numeroTerminal))
-                {
-                    return Error.NotFound("CAIXA.TERMINAL_NAO_ENCONTRADO",
-                        "Não foi possível localizar o caixa através do número de terminal fornecido.");
-                }
-
                 var result = await tabelaRepo.ObterResumosAtivosAsync();
 
                 return result ?? [];
