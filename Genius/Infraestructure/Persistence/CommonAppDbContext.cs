@@ -13,6 +13,9 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
     public DbSet<Pagamento> Pagamento { get; set; }
     public DbSet<TerminalCaixa> TerminaisCaixa { get; set; }
     public DbSet<TerminalTipoEntidade> TerminalTipoEntidades { get; set; }
+    public DbSet<TabelaPreco> TabelasPrecos { get; set; }
+
+
 
     protected CommonAppDbContext(DbContextOptions options) : base(options) { }
 
@@ -25,6 +28,8 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
 
         TerminalCaixaMappings.Execute(modelBuilder);
         TerminalTipoEntidadeMappings.Execute(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(CommonAppDbContext).Assembly);
     }
 }
 
