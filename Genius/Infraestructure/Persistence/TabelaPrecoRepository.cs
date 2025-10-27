@@ -8,17 +8,22 @@ namespace Genius.Infraestructure.Persistence
     public class TabelaPrecoRepository<TContext>(TContext context) : ITabelaPrecoRepository
         where TContext : DbContext, ICommonAppDbContext
     {
-        public async Task<List<ResumoTabelaPrecoDto>?> ObterResumosAtivosAsync(CancellationToken cancellationToken = default)
+        public async Task<List<TabelaPrecoSimplificada>?> ObterResumosAtivosAsync(
+            CancellationToken cancellationToken = default
+        )
         {
-            var tabelas = await context.TabelasPrecos
-                .AsNoTracking()
+            var tabelas = await context
+                .TabelasPrecos.AsNoTracking()
                 .OrderBy(t => t.NumTabela)
                 .Where(t => t.Ativa)
-                .Select(t => new ResumoTabelaPrecoDto(t.NumTabela, t.NomeTabela))
+                .Select(t => new TabelaPrecoSimplificada()
+                {
+                    NumTabela = t.NumTabela,
+                    NomeTabela = t.NomeTabela
+                })
                 .ToListAsync(cancellationToken);
 
             return tabelas;
         }
-
     }
 }
