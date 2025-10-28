@@ -1,7 +1,6 @@
 ﻿using Genius.Common.Lib.Results;
 using Shouldly;
 
-
 namespace Genius.Common.Tests.Lib.Results
 {
     public class ResultGenericTests
@@ -92,7 +91,6 @@ namespace Genius.Common.Tests.Lib.Results
             result.Value.Nome.ShouldBe("João");
         }
 
-
         [Fact]
         public void ImplicitConversion_QuandoConverterErroUnico_DeveCriarResultadoComErro()
         {
@@ -100,17 +98,32 @@ namespace Genius.Common.Tests.Lib.Results
 
             Result<UsuarioTeste> result = error;
 
-
             result.IsFailure.ShouldBeTrue();
             result.Errors[0].Type.ShouldBe(ErrorType.Validation);
         }
-
 
         [Fact]
         public void ImplicitConversion_QuandoConverterMultiplosErros_DeveCriarResultadoComErro()
         {
             // Arrange
             var errors = new[]
+            {
+                Error.Validation("ERROR1", "Erro 1"),
+                Error.Validation("ERROR2", "Erro 2"),
+                Error.Validation("ERROR3", "Erro 3")
+            };
+
+            Result<UsuarioTeste> result = errors;
+
+            result.IsFailure.ShouldBeTrue();
+            result.Errors.Count.ShouldBe(3);
+            result.Errors.ShouldBe(errors);
+        }
+
+        [Fact]
+        public void ImplicitConversion_QuandoConverterListaDeErro_DeveCriarResultadoComErro()
+        {
+            var errors = new List<Error>()
             {
                 Error.Validation("ERROR1", "Erro 1"),
                 Error.Validation("ERROR2", "Erro 2"),

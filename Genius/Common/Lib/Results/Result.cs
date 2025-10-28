@@ -35,5 +35,7 @@
         public static implicit operator Result<T>(Error error) => Failure<T>(error);
 
         public static implicit operator Result<T>(Error[] errors) => Failure<T>(errors);
+
+        public static implicit operator Result<T>(List<Error> errors) => Failure<T>([.. errors]);
     }
 }
