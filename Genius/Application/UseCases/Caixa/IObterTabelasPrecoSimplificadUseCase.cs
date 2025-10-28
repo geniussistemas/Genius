@@ -5,6 +5,6 @@ namespace Genius.Application.UseCases.Caixa
 {
     public interface IObterTabelasPrecoSimplificadUseCase
     {
-        Task<Result<IList<TabelaPrecoSimplificada>>> ExecutarAsync();
+        Task<Result<List<TabelaPrecoSimplificada>>> ExecutarAsync();
     }
 }
