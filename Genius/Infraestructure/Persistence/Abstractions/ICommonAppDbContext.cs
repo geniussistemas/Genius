@@ -14,4 +14,5 @@ public interface ICommonAppDbContext
     public DbSet<TerminalTipoEntidade> TerminalTipoEntidades { get; set; }
 
     public DbSet<TabelaPreco> TabelasPrecos { get; set; }
+    public DbSet<Convenio> Convenios { get; set; }
 }

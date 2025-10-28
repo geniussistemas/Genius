@@ -14,13 +14,15 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
     public DbSet<TerminalCaixa> TerminaisCaixa { get; set; }
     public DbSet<TerminalTipoEntidade> TerminalTipoEntidades { get; set; }
     public DbSet<TabelaPreco> TabelasPrecos { get; set; }
-
+    public DbSet<Convenio> Convenios { get; set; }
 
 
     protected CommonAppDbContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         EstacionamentoMappings.Execute(modelBuilder);
         ConfigMappings.Execute(modelBuilder);
         TicketMappings.Execute(modelBuilder);
