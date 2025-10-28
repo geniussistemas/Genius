@@ -17,7 +17,7 @@ namespace Genius.Infraestructure.Persistence
                .Select(c => new ConvenioSimplificado { Id = c.Id, Nome = c.Nome })
                .ToListAsync(cancellationToken);
 
-            return result;
+            return result ?? [];
         }
     }
 }
