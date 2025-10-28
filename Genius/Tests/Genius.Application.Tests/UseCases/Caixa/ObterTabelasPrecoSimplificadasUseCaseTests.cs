@@ -15,7 +15,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             var tabelaRepoMock = new Mock<ITabelaPrecoRepository>();
 
             tabelaRepoMock
-                .Setup(x => x.ObterResumosAtivosAsync(It.IsAny<CancellationToken>()))
+                .Setup(x => x.ObterTabelasPrecoSimplificadasAsync(It.IsAny<CancellationToken>()))
                 .ThrowsAsync(new Exception());
 
             var obterUseCase = new ObterTabelasPrecoSimplificadasUseCase(tabelaRepoMock.Object);
@@ -37,7 +37,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             var tabelaRepoMock = new Mock<ITabelaPrecoRepository>();
 
             tabelaRepoMock
-                .Setup(t => t.ObterResumosAtivosAsync(It.IsAny<CancellationToken>()))
+                .Setup(t => t.ObterTabelasPrecoSimplificadasAsync(It.IsAny<CancellationToken>()))
                 .ReturnsAsync((List<TabelaPrecoSimplificada>?)null);
 
             var obterUseCase = new ObterTabelasPrecoSimplificadasUseCase(tabelaRepoMock.Object);
@@ -60,7 +60,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             };
 
             tabelaRepoMock
-                .Setup(t => t.ObterResumosAtivosAsync(It.IsAny<CancellationToken>()))
+                .Setup(t => t.ObterTabelasPrecoSimplificadasAsync(It.IsAny<CancellationToken>()))
                 .ReturnsAsync(tabelas);
 
             var obterUseCase = new ObterTabelasPrecoSimplificadasUseCase(tabelaRepoMock.Object);

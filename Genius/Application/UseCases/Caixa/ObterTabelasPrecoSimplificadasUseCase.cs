@@ -10,7 +10,7 @@ namespace Genius.Application.UseCases.Caixa
         {
             try
             {
-                var result = await tabelaRepo.ObterResumosAtivosAsync();
+                var result = await tabelaRepo.ObterTabelasPrecoSimplificadasAsync();
 
                 return result ?? [];
             }
@@ -18,7 +18,6 @@ namespace Genius.Application.UseCases.Caixa
             {
                 return Error.Failure("INTERNAL_SERVER_ERROR", "Ocorreu um erro interno ao processar a solicitação.");
             }
-
         }
     }
 }

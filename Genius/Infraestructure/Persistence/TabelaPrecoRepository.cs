@@ -8,7 +8,7 @@ namespace Genius.Infraestructure.Persistence
     public class TabelaPrecoRepository<TContext>(TContext context) : ITabelaPrecoRepository
         where TContext : DbContext, ICommonAppDbContext
     {
-        public async Task<List<TabelaPrecoSimplificada>?> ObterResumosAtivosAsync(
+        public async Task<List<TabelaPrecoSimplificada>?> ObterTabelasPrecoSimplificadasAsync(
             CancellationToken cancellationToken = default
         )
         {
@@ -23,7 +23,7 @@ namespace Genius.Infraestructure.Persistence
                 })
                 .ToListAsync(cancellationToken);
 
-            return tabelas;
+            return tabelas ?? [];
         }
     }
 }
