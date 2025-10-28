@@ -1,5 +1,6 @@
 using Genius.Application.Abstractions;
 using Genius.Domain;
+using Genius.Domain.Entities;
 using Genius.Infraestructure.Persistence.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,16 @@ namespace Genius.Infraestructure.Persistence;
 public class EstacionamentoRepository<TContext>(TContext context) : IEstacionamentoRepository
     where TContext : DbContext, ICommonAppDbContext
 {
+    public async Task<Estacionamento> GetDadosEstacionamentoAsync()
+    {
+        var estacionamento = await context.Estacionamento
+            .AsNoTracking()
+            .OrderBy(x => x.Id)
+            .FirstOrDefaultAsync();
+
+        return estacionamento ?? throw new EstacionamentoNotFoundException("Não ha definições para o estacionamento");
+    }
+
     public async Task<string?> GetIdUnicoUnidadeAsync()
     {
         try
@@ -20,7 +31,7 @@ public class EstacionamentoRepository<TContext>(TContext context) : IEstacioname
 
             if (estacionamento is null)
                 throw new EstacionamentoNotFoundException("Não ha definições para o estacionamento");
-            
+
             return estacionamento.IdUnicoUnidade;
         }
         catch (Exception ex)

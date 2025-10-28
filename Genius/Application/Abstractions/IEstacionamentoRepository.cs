@@ -1,3 +1,5 @@
+using Genius.Domain.Entities;
+
 namespace Genius.Application.Abstractions;
 
 /// <summary>
@@ -6,4 +8,6 @@ namespace Genius.Application.Abstractions;
 public interface IEstacionamentoRepository
 {
     Task<string?> GetIdUnicoUnidadeAsync();
+    Task<Estacionamento> GetDadosEstacionamentoAsync();
+
 }
