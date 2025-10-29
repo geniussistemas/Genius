@@ -28,7 +28,7 @@ namespace Genius.Infraestructure.Persistence
               .HasDatabaseName("UQ_TabelaPreco_NumeroTabela");
 
             builder.Property(t => t.NomeTabela)
-                .HasColumnName("TAB_NR_TABELA")
+                .HasColumnName("TAB_NM_TABELA")
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(30)
                 .IsRequired(false);
