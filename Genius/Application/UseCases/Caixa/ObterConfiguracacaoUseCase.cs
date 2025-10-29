@@ -15,33 +15,31 @@ namespace Genius.Application.UseCases.Caixa
         {
             if (!await repository.NumeroTerminalExisteAsync(numeroTerminal))
             {
-                return Error.NotFound("CAIXA.TERMINAL_INEXISTENTE",
-                    "Não foi possível localizar as configurações para caixa através do número de terminal fornecido.");
+                return Error.NotFound(
+                    "CAIXA.TERMINAL_INEXISTENTE",
+                    "Não foi possível localizar as configurações para caixa através do número de terminal fornecido."
+                );
             }
 
-
-            var tabelaPrecoTask = obterTabelasUseCase.ExecutarAsync();
-            var conveniosTask = obterConveniosUseCase.ExecutarAsync();
-            var dadosTask = obterDadosImpresaooUseCase.ExecutarAsync();
-
-            await Task.WhenAll(tabelaPrecoTask, conveniosTask, dadosTask);
-
-            var resultDados = await dadosTask;
-            var resultTabelas = await tabelaPrecoTask;
-            var resultConvenios = await conveniosTask;
+            var resultTabelas = await obterTabelasUseCase.ExecutarAsync();
+            var resultConvenios = await obterConveniosUseCase.ExecutarAsync();
+            var resultDados = await obterDadosImpresaooUseCase.ExecutarAsync();
 
             if (resultDados.IsFailure || resultTabelas.IsFailure || resultConvenios.IsFailure)
             {
                 var errors = new List<Error>();
 
-                if (resultDados.IsFailure) errors.Add(resultDados.Errors[0]);
-                if (resultTabelas.IsFailure) errors.Add(resultTabelas.Errors[0]);
-                if (resultConvenios.IsFailure) errors.Add(resultConvenios.Errors[0]);
+                if (resultDados.IsFailure)
+                    errors.Add(resultDados.Errors[0]);
+
+                if (resultTabelas.IsFailure)
+                    errors.Add(resultTabelas.Errors[0]);
+
+                if (resultConvenios.IsFailure)
+                    errors.Add(resultConvenios.Errors[0]);
 
                 return errors;
             }
-
-
 
             return new CaixaConfiguracao
             {
@@ -49,7 +47,6 @@ namespace Genius.Application.UseCases.Caixa
                 TabelasPrecos = resultTabelas.Value,
                 Convenios = resultConvenios.Value,
             };
-
         }
     }
 }
