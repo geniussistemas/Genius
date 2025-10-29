@@ -16,7 +16,6 @@ public partial class Telefone
     {
         if (string.IsNullOrWhiteSpace(numero))
         {
-            // throw new ArgumentException("O número de telefone não pode ser vazio.");
             Numero = string.Empty;
             CodigoPais = string.Empty;
             Ddd = string.Empty;
@@ -26,17 +25,22 @@ public partial class Telefone
 
         var match = RegexInternacional.Match(numero);
         if (!match.Success)
-            throw new ArgumentException("Número de telefone inválido.");
+            throw new ArgumentException("Número de telefone inválido ou formato não suportado.");
 
         CodigoPais = match.Groups[1].Value;
-        Ddd = match.Groups[2].Value;
-        NumeroLocal = match.Groups[3].Value + match.Groups[4].Value;
+
+        // O DDD está no Grupo 2 (se usou parênteses) ou no Grupo 3 (se não usou)
+        Ddd = match.Groups[2].Success ? match.Groups[2].Value : match.Groups[3].Value;
+
+        // O número local agora está nos Grupos 4 e 5
+        NumeroLocal = match.Groups[4].Value + match.Groups[5].Value;
+
         Numero = $"+{CodigoPais}{Ddd}{NumeroLocal}";
     }
 
     public string Formatado()
     {
-        if (NumeroLocal is null)
+        if (string.IsNullOrWhiteSpace(NumeroLocal))
             return "";
 
         string prefixo = $"+{CodigoPais} ({Ddd})";
@@ -53,8 +57,13 @@ public partial class Telefone
         return obj is Telefone telefone && Numero == telefone.Numero;
     }
 
-    public override int GetHashCode() => Numero?.GetHashCode() ?? 0;
-    
-    [GeneratedRegex(@"^\+?(\d{1,3})\s?\(?(\d{2})\)?\s?(\d{4,5})-?(\d{4})$")]
+    public override int GetHashCode()
+    {
+        if (string.IsNullOrEmpty(Numero)) return 0;
+
+        return Numero.GetHashCode();
+    }
+
+    [GeneratedRegex(@"^\+?(\d{1,3}?)(?:\s?\((\d{2,3})\)\s?|\s?(\d{2})\s?)(\d{4,5})-?(\d{4})$")]
     private static partial Regex MyRegex();
 }
