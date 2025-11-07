@@ -1,17 +1,46 @@
-﻿using System.Text.Json.Serialization;
+﻿using Microsoft.AspNetCore.Http;
+using System.Text.Json.Serialization;
 
 namespace Genius.Common.Api.DTO
 {
     public class ApiResponse<TData>
     {
         [JsonPropertyName("header")]
-        public ResponseHeader Header { get; set; } = new();
+        public ResponseHeader Header { get; set; } = null!;
 
         [JsonPropertyName("data")]
         public TData? Data { get; set; }
 
         [JsonPropertyName("result")]
-        public ResponseResult Result { get; set; } = new();
+        public ResponseResult Result { get; set; } = null!;
+
+        public ApiResponse(
+            TData? data,
+            string? messageType,
+            int statusCode = StatusCodes.Status200OK,
+            string? code = null,
+            string? message = null
+        )
+        {
+            Header = new ResponseHeader() { MessageType = messageType ?? string.Empty };
+
+            Result = new ResponseResult()
+            {
+                StatusCode = statusCode,
+                Code = code,
+                Message = message
+            };
+
+            Data = data;
+        }
+
+        public ApiResponse(TData? data, ResponseHeader header, ResponseResult result)
+        {
+            Header = header;
+            Result = result;
+            Data = data;
+        }
+
     }
 
     public class ResponseHeader
@@ -24,7 +53,6 @@ namespace Genius.Common.Api.DTO
 
         [JsonPropertyName("version")]
         public string Version { get; set; } = "1.0";
-
     }
 
     public class ResponseResult
@@ -33,9 +61,9 @@ namespace Genius.Common.Api.DTO
         public int StatusCode { get; set; }
 
         [JsonPropertyName("code")]
-        public string Code { get; set; } = string.Empty;
+        public string? Code { get; set; }
 
         [JsonPropertyName("message")]
-        public string Message { get; set; } = string.Empty;
+        public string? Message { get; set; }
     }
 }
