@@ -9,6 +9,23 @@ namespace Genius.Common.Api.DTO
 
         [JsonPropertyName("data")]
         public TData? Data { get; set; }
+
+
+        public ApiRequest(TData? data, string messageType, string sender = "GENIUS")
+        {
+            Data = data;
+            Header = new RequestHeader()
+            {
+                MessageType = messageType,
+                Sender = sender
+            };
+        }
+
+        public ApiRequest(TData? data, RequestHeader? header = null)
+        {
+            Data = data;
+            Header = header;
+        }
     }
 
     public class RequestHeader
