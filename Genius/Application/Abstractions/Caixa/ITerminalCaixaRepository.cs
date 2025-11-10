@@ -1,6 +1,6 @@
 ﻿using Genius.Domain.Entities;
 
-namespace Genius.Application.Abstractions
+namespace Genius.Application.Abstractions.Caixa
 {
     public interface ITerminalCaixaRepository
     {

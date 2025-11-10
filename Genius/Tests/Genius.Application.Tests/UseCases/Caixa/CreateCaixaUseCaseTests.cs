@@ -1,4 +1,4 @@
-﻿using Genius.Application.Abstractions;
+﻿using Genius.Application.Abstractions.Caixa;
 using Genius.Application.UseCases.Caixa;
 using Genius.Common.Lib.Results;
 using Genius.Domain.Entities;

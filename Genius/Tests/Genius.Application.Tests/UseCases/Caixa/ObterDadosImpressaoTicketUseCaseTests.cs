@@ -1,8 +1,8 @@
 ﻿using Genius.Application.Abstractions;
 using Genius.Application.UseCases.Caixa;
 using Genius.Common.Lib.Results;
-using Genius.Domain;
 using Genius.Domain.Entities;
+using Genius.Domain.Exceptions;
 using Genius.Domain.ValueObjects;
 using Moq;
 using Shouldly;

@@ -1,4 +1,4 @@
-﻿using Genius.Application.Abstractions;
+﻿using Genius.Application.Abstractions.Caixa;
 using Genius.Domain.Entities;
 using Genius.Infraestructure.Persistence.Abstractions;
 using Microsoft.EntityFrameworkCore;

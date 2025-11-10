@@ -1,8 +1,9 @@
 ﻿using Genius.Application.Abstractions;
+using Genius.Application.Abstractions.Caixa;
 using Genius.Application.DTOs;
 using Genius.Common.Lib.Results;
-using Genius.Domain;
 using Genius.Domain.Entities;
+using Genius.Domain.Exceptions;
 
 namespace Genius.Application.UseCases.Caixa
 {

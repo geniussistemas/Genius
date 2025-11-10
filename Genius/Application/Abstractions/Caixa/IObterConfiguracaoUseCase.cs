@@ -1,7 +1,7 @@
 ﻿using Genius.Application.DTOs;
 using Genius.Common.Lib.Results;
 
-namespace Genius.Application.UseCases.Caixa
+namespace Genius.Application.Abstractions.Caixa
 {
     public interface IObterConfiguracaoUseCase
     {
