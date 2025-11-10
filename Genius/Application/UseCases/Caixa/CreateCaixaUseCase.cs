@@ -6,23 +6,23 @@ namespace Genius.Application.UseCases.Caixa
 {
     public class CreateCaixaUseCase(ITerminalCaixaRepository repository) : ICreateCaixaUseCase
     {
-        public async Task<Result<TerminalCaixa>> ExecutarAsync(TerminalCaixa request)
+        public async Task<Result<TerminalCaixa>> ExecutarAsync(TerminalCaixa novoCaixa)
         {
             try
             {
-                if (await repository.NumeroTerminalExisteAsync(request.Terminal))
+                if (await repository.NumeroTerminalExisteAsync(novoCaixa.Terminal))
                 {
                     return Error.Conflict("CAIXA.TERMINAL_DUPLICADO", "Já existe um caixa registrado com o número de terminal informado.");
                 }
 
-                if (await repository.NomeTerminalExisteAsync(request.Nome!))
+                if (await repository.NomeTerminalExisteAsync(novoCaixa.Nome!))
                 {
                     return Error.Conflict("CAIXA.NOME_DUPLICADO", "Já existe um caixa registrado com nome informado.");
                 }
 
-                request = ConfiguraValoresPadrao(request);
+                novoCaixa = ConfiguraValoresPadrao(novoCaixa);
 
-                var terminalCadastrado = await repository.AdicionarAsync(request);
+                var terminalCadastrado = await repository.AdicionarAsync(novoCaixa);
 
                 return terminalCadastrado;
             }

@@ -1,6 +1,6 @@
 using Genius.Application.Abstractions;
-using Genius.Domain;
 using Genius.Domain.Entities;
+using Genius.Domain.Exceptions;
 using Genius.Infraestructure.Persistence.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -29,10 +29,9 @@ public class EstacionamentoRepository<TContext>(TContext context) : IEstacioname
                 .OrderBy(c => c.Id)
                 .FirstOrDefaultAsync();
 
-            if (estacionamento is null)
-                throw new EstacionamentoNotFoundException("Não ha definições para o estacionamento");
-
-            return estacionamento.IdUnicoUnidade;
+            return estacionamento is null
+                ? throw new EstacionamentoNotFoundException("Não ha definições para o estacionamento")
+                : estacionamento.IdUnicoUnidade;
         }
         catch (Exception ex)
         {
