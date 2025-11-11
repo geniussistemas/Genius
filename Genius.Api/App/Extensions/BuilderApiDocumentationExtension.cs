@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Genius.Api.App.Extensions;
 
 public static class BuilderApiDocumentationExtension
@@ -15,10 +10,10 @@ public static class BuilderApiDocumentationExtension
             // Garante que o Swagger usará os namespaces completos
             // No lugar de "Category", ele usará "Fina.Core.Models.Category"
             // Ajuda quando há classes com mesmo nome em namespaces diferentes
-            x.CustomSchemaIds(n => n.FullName);
+            //x.CustomSchemaIds(n => n.FullName);
         });
 
         return builder;
     }
-    
+
 }
