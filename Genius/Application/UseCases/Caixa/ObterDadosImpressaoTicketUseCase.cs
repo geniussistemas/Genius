@@ -1,6 +1,6 @@
 ﻿using Genius.Application.Abstractions;
 using Genius.Application.Abstractions.Caixa;
-using Genius.Application.DTOs;
+using Genius.Application.DTO;
 using Genius.Common.Lib.Results;
 using Genius.Domain.Entities;
 using Genius.Domain.Exceptions;

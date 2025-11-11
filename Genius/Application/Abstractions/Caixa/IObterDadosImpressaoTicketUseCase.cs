@@ -1,4 +1,4 @@
-﻿using Genius.Application.DTOs;
+﻿using Genius.Application.DTO;
 using Genius.Common.Lib.Results;
 
 namespace Genius.Application.Abstractions.Caixa
