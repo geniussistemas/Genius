@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Infraestructure\**" />
+    <Content Remove="Infraestructure\**" />
+    <EmbeddedResource Remove="Infraestructure\**" />
+    <None Remove="Infraestructure\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -26,10 +33,6 @@
     <ProjectReference Include="..\InterfaceAdapters\Genius.Api.InterfaceAdapters.csproj" />
     <ProjectReference Include="..\Infraestructure\Genius.Api.Infraestructure.csproj" />
     <ProjectReference Include="..\Application\Genius.Api.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infraestructure\" />
   </ItemGroup>
 
 </Project>
