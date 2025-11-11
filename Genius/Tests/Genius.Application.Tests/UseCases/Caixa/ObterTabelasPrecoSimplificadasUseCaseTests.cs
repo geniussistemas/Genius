@@ -1,6 +1,6 @@
-﻿using Genius.Application.Abstractions;
-using Genius.Application.DTOs;
-using Genius.Application.UseCases.Caixa;
+﻿using Genius.Application.Abstractions.TabelaPreco;
+using Genius.Application.DTO;
+using Genius.Application.UseCases.TabelaPreco;
 using Genius.Common.Lib.Results;
 using Moq;
 using Shouldly;

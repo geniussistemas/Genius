@@ -5,6 +5,6 @@ namespace Genius.Application.Abstractions.TabelaPreco
 {
     public interface IObterTabelasPrecoSimplificadaUseCase
     {
-        Task<Result<List<TabelaPrecoSimplificada>?>> ExecutarAsync();
+        Task<Result<List<TabelaPrecoSimplificada>>> ExecutarAsync();
     }
 }

@@ -1,5 +1,5 @@
-﻿using Genius.Application.Abstractions;
-using Genius.Application.DTOs;
+﻿using Genius.Application.Abstractions.TabelaPreco;
+using Genius.Application.DTO;
 using Genius.Infraestructure.Persistence.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
