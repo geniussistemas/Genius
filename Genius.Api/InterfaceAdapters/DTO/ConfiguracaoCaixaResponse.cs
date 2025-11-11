@@ -8,8 +8,5 @@
         public IList<TabelaPrecoSimplificadaResponse>? TabelasPreco { get; set; }
         public IList<ConveniosSimplificadoResponse>? Convenios { get; set; }
 
-        public record TabelaPrecoSimplificadaResponse(int Numero, string Nome);
-
-        public record ConveniosSimplificadoResponse(int Codigo, string Nome);
     }
 }

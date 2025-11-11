@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Gateways\**" />
+    <Compile Remove="MessageHandlers\**" />
+    <EmbeddedResource Remove="Gateways\**" />
+    <EmbeddedResource Remove="MessageHandlers\**" />
+    <None Remove="Gateways\**" />
+    <None Remove="MessageHandlers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
   </ItemGroup>
@@ -15,11 +24,6 @@
     <ProjectReference Include="..\..\Genius\Common\Genius.Common.csproj" />
     <ProjectReference Include="..\..\Genius\Infraestructure\Genius.Infraestructure.csproj" />
     <ProjectReference Include="..\..\Genius.Api\Application\Genius.Api.Application.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Gateways\" />
-    <Folder Include="MessageHandlers\" />
   </ItemGroup>
 
 </Project>
