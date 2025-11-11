@@ -1,6 +1,6 @@
-﻿using Genius.Application.Abstractions;
-using Genius.Application.DTOs;
-using Genius.Application.UseCases.Caixa;
+﻿using Genius.Application.Abstractions.Convenio;
+using Genius.Application.DTO;
+using Genius.Application.UseCases.Convenio;
 using Genius.Common.Lib.Results;
 using Moq;
 using Shouldly;
@@ -14,7 +14,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
         {
             var convenioRepoMock = new Mock<IConvenioRepository>();
 
-            convenioRepoMock.Setup(x => x.ObterConvenioSimplificadosAsync(It.IsAny<CancellationToken>()))
+            convenioRepoMock.Setup(x => x.ObterConveniosSimplificadosAsync(It.IsAny<CancellationToken>()))
                 .ReturnsAsync([]);
 
             var conveniosUseCase = new ObterConveniosSimplificadoUseCase(convenioRepoMock.Object);
@@ -30,7 +30,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
         {
             var convenioRepoMock = new Mock<IConvenioRepository>();
 
-            convenioRepoMock.Setup(x => x.ObterConvenioSimplificadosAsync(It.IsAny<CancellationToken>()))
+            convenioRepoMock.Setup(x => x.ObterConveniosSimplificadosAsync(It.IsAny<CancellationToken>()))
                 .ThrowsAsync(new Exception());
 
             var conveniosUseCase = new ObterConveniosSimplificadoUseCase(convenioRepoMock.Object);
@@ -52,7 +52,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
 
             var convenioRepoMock = new Mock<IConvenioRepository>();
 
-            convenioRepoMock.Setup(x => x.ObterConvenioSimplificadosAsync(It.IsAny<CancellationToken>()))
+            convenioRepoMock.Setup(x => x.ObterConveniosSimplificadosAsync(It.IsAny<CancellationToken>()))
                 .ReturnsAsync(listaConvenios);
 
             var conveniosUseCase = new ObterConveniosSimplificadoUseCase(convenioRepoMock.Object);

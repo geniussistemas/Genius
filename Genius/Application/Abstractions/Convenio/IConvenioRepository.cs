@@ -4,6 +4,6 @@ namespace Genius.Application.Abstractions.Convenio
 {
     public interface IConvenioRepository
     {
-        Task<List<ConvenioSimplificado>> ObterConvenioSimplificadosAsync(CancellationToken cancellationToken = default);
+        Task<List<ConvenioSimplificado>> ObterConveniosSimplificadosAsync(CancellationToken cancellationToken = default);
     }
 }

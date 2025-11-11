@@ -1,5 +1,5 @@
-﻿using Genius.Application.Abstractions;
-using Genius.Application.DTOs;
+﻿using Genius.Application.Abstractions.Convenio;
+using Genius.Application.DTO;
 using Genius.Infraestructure.Persistence.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +8,7 @@ namespace Genius.Infraestructure.Persistence
     public class ConvenioRepository<TContext>(TContext context) : IConvenioRepository
         where TContext : DbContext, ICommonAppDbContext
     {
-        public async Task<List<ConvenioSimplificado>> ObterConvenioSimplificadosAsync(CancellationToken cancellationToken = default)
+        public async Task<List<ConvenioSimplificado>> ObterConveniosSimplificadosAsync(CancellationToken cancellationToken = default)
         {
             var result = await context.Convenios
                .AsNoTracking()
