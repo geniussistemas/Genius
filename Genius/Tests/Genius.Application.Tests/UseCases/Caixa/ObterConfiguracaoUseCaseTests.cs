@@ -1,5 +1,7 @@
 ﻿using Genius.Application.Abstractions.Caixa;
-using Genius.Application.DTOs;
+using Genius.Application.Abstractions.Convenio;
+using Genius.Application.Abstractions.TabelaPreco;
+using Genius.Application.DTO;
 using Genius.Application.UseCases.Caixa;
 using Genius.Common.Lib.Results;
 using Moq;
@@ -38,7 +40,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             };
 
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConveniosMock = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 
@@ -83,7 +85,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             );
 
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConveniosMock = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 
@@ -135,7 +137,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             };
 
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConveniosMock = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 
@@ -187,7 +189,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             };
 
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConveniosMock = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 
@@ -238,7 +240,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             };
 
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConveniosMock = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 
@@ -281,7 +283,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             );
 
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConveniosMock = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 
@@ -313,7 +315,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
             var dadosEsperados = new DadosImpressaoTicket();
 
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConvenios = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 
@@ -344,7 +346,7 @@ namespace Genius.Application.Tests.UseCases.Caixa
         public async Task ObterConfiguracao_QuandoNumeroTerminalForInvalido_DeveRetornarNaoEncontrado()
         {
             var obterDadosMock = new Mock<IObterDadosImpressaoTicketUseCase>();
-            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadUseCase>();
+            var obterTabelasMock = new Mock<IObterTabelasPrecoSimplificadaUseCase>();
             var obterConvenios = new Mock<IObterConveniosSimplificadoUseCase>();
             var caixaRepoMock = new Mock<ITerminalCaixaRepository>();
 

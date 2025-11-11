@@ -1,12 +1,14 @@
 ﻿using Genius.Application.Abstractions.Caixa;
-using Genius.Application.DTOs;
+using Genius.Application.Abstractions.Convenio;
+using Genius.Application.Abstractions.TabelaPreco;
+using Genius.Application.DTO;
 using Genius.Common.Lib.Results;
 
 namespace Genius.Application.UseCases.Caixa
 {
     public class ObterConfiguracacaoUseCase(
         IObterDadosImpressaoTicketUseCase obterDadosImpresaooUseCase,
-        IObterTabelasPrecoSimplificadUseCase obterTabelasUseCase,
+        IObterTabelasPrecoSimplificadaUseCase obterTabelasUseCase,
         IObterConveniosSimplificadoUseCase obterConveniosUseCase,
         ITerminalCaixaRepository repository
     ) : IObterConfiguracaoUseCase
