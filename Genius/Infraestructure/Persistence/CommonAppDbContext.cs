@@ -15,9 +15,10 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
     public DbSet<TerminalTipoEntidade> TerminalTipoEntidades { get; set; }
     public DbSet<TabelaPreco> TabelasPrecos { get; set; }
     public DbSet<Convenio> Convenios { get; set; }
+    public DbSet<Operador> Operadores { get; set; }
 
-
-    protected CommonAppDbContext(DbContextOptions options) : base(options) { }
+    protected CommonAppDbContext(DbContextOptions options)
+        : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -34,4 +35,3 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CommonAppDbContext).Assembly);
     }
 }
-
