@@ -1,6 +1,6 @@
 ﻿namespace Genius.Application.Abstractions.Services;
 
-public interface ICryptoService
+public interface IEncryptionService
 {
     byte[] EncryptData(string data);
     byte[] EncryptData(string data, string key);
