@@ -21,16 +21,18 @@ namespace Genius.Infraestructure.Tests.Services
         [Theory]
         [InlineData(null)]
         [InlineData("")]
-        public void Constructor_ComChaveInvalida_DeveLancarArgumentException(string chaveInvalida)
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
+        public void Constructor_ComChaveInvalida_DeveLancarArgumentException(string? chaveInvalida)
         {
             // Act & Assert
             var exception = Should.Throw<ArgumentException>(() =>
-                new PasswordHasherService(chaveInvalida));
+                new PasswordHasherService(chaveInvalida!));
 
             exception.Message.ShouldBe("A chave de criptografia não pode ser nula ou vazia");
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void EncryptData_ComDadosValidos_DeveRetornarByteArray()
         {
             // Arrange
@@ -48,19 +50,21 @@ namespace Genius.Infraestructure.Tests.Services
         [Theory]
         [InlineData(null)]
         [InlineData("")]
-        public void EncryptData_ComDadosInvalidos_DeveLancarArgumentException(string dadosInvalidos)
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
+        public void EncryptData_ComDadosInvalidos_DeveLancarArgumentException(string? dadosInvalidos)
         {
             // Arrange
             var service = new PasswordHasherService(ValidKey);
 
             // Act & Assert
             var exception = Should.Throw<ArgumentException>(() =>
-                service.EncryptData(dadosInvalidos));
+                service.EncryptData(dadosInvalidos!));
 
             exception.Message.ShouldBe("Os dados não podem ser vazia");
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void EncryptData_ComChaveCustomizada_DeveUsarChaveFornecida()
         {
             // Arrange
@@ -78,19 +82,21 @@ namespace Genius.Infraestructure.Tests.Services
         [Theory]
         [InlineData(null)]
         [InlineData("")]
-        public void EncryptData_ComChaveCustomizadaInvalida_DeveLancarArgumentException(string chaveInvalida)
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
+        public void EncryptData_ComChaveCustomizadaInvalida_DeveLancarArgumentException(string? chaveInvalida)
         {
             // Arrange
             var service = new PasswordHasherService(ValidKey);
 
             // Act & Assert
             var exception = Should.Throw<ArgumentException>(() =>
-                service.EncryptData(TestData, chaveInvalida));
+                service.EncryptData(TestData, chaveInvalida!));
 
             exception.Message.ShouldBe("A chave não pode ser vazia");
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void DecryptData_ComDadosCriptografadosValidos_DeveRetornarTextoOriginal()
         {
             // Arrange
@@ -107,19 +113,21 @@ namespace Genius.Infraestructure.Tests.Services
         [Theory]
         [InlineData(null)]
         [InlineData(new byte[0])]
-        public void DecryptData_ComDadosInvalidos_DeveLancarArgumentException(byte[] dadosInvalidos)
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
+        public void DecryptData_ComDadosInvalidos_DeveLancarArgumentException(byte[]? dadosInvalidos)
         {
             // Arrange
             var service = new PasswordHasherService(ValidKey);
 
             // Act & Assert
             var exception = Should.Throw<ArgumentException>(() =>
-                service.DecryptData(dadosInvalidos));
+                service.DecryptData(dadosInvalidos!));
 
             exception.Message.ShouldBe("Dados criptografados inválidos");
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void DecryptData_ComChaveCustomizada_DeveDescriptografarCorretamente()
         {
             // Arrange
@@ -135,6 +143,7 @@ namespace Genius.Infraestructure.Tests.Services
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void DecryptData_ComChaveIncorreta_DeveRetornarResultadoInesperado()
         {
             // Arrange
@@ -152,7 +161,8 @@ namespace Genius.Infraestructure.Tests.Services
         [Theory]
         [InlineData(null)]
         [InlineData("")]
-        public void DecryptData_ComChaveCustomizadaInvalida_DeveLancarArgumentException(string chaveInvalida)
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
+        public void DecryptData_ComChaveCustomizadaInvalida_DeveLancarArgumentException(string? chaveInvalida)
         {
             // Arrange
             var service = new PasswordHasherService(ValidKey);
@@ -160,12 +170,13 @@ namespace Genius.Infraestructure.Tests.Services
 
             // Act & Assert
             var exception = Should.Throw<ArgumentException>(() =>
-                service.DecryptData(dadosCriptografados, chaveInvalida));
+                service.DecryptData(dadosCriptografados, chaveInvalida!));
 
             exception.Message.ShouldBe("A chave não pode ser vazia");
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void EncryptDecrypt_CicloCompleto_DeveRetornarDadosOriginais()
         {
             // Arrange
@@ -181,6 +192,7 @@ namespace Genius.Infraestructure.Tests.Services
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void EncryptData_MesmosDados_DeveProduzirMesmoResultado()
         {
             // Arrange
@@ -195,6 +207,7 @@ namespace Genius.Infraestructure.Tests.Services
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void EncryptData_DadosDiferentes_DeveProduzirResultadosDiferentes()
         {
             // Arrange
@@ -212,6 +225,7 @@ namespace Genius.Infraestructure.Tests.Services
         [InlineData("a")]
         [InlineData("Texto curto")]
         [InlineData("Texto muito longo com vários caracteres especiais !@#$%^&*()")]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void EncryptDecrypt_ComDiferentesComprimentos_DeveFuncionar(string dados)
         {
             // Arrange
@@ -226,6 +240,7 @@ namespace Genius.Infraestructure.Tests.Services
         }
 
         [Fact]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public void DecryptData_RemovePaddingZeros_DeveRetornarStringLimpa()
         {
             // Arrange

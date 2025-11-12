@@ -18,10 +18,10 @@ namespace Genius.Infraestructure.Services
         }
 
 
-        [Obsolete("Obsolete")]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public string DecryptData(byte[] encryptedData) => DecryptData(encryptedData, _encryptionKey);
 
-        [Obsolete("Obsolete")]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public string DecryptData(byte[] encryptedData, string key)
         {
             if (encryptedData == null || encryptedData.Length == 0)
@@ -50,11 +50,11 @@ namespace Genius.Infraestructure.Services
             return Encoding.Unicode.GetString(resultStream.ToArray()).TrimEnd('\0');
         }
 
-        [Obsolete("Obsolete")]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public byte[] EncryptData(string data) => EncryptData(data, _encryptionKey);
 
 
-        [Obsolete("Obsolete")]
+        [Obsolete("TripleDES é inseguro e foi descontinuado pelo NIST. Mantido apenas para compatibilidade com dados legados.")]
         public byte[] EncryptData(string data, string key)
         {
             if (string.IsNullOrEmpty(data))
