@@ -1,4 +1,5 @@
-﻿using Genius.Api.InterfaceAdapters.Abstractions;
+﻿using Genius.Api.Infraestructure.Persistence;
+using Genius.Api.InterfaceAdapters.Abstractions;
 using Genius.Api.InterfaceAdapters.Controllers;
 using Genius.Application.Abstractions.Operador;
 using Genius.Application.UseCases.Operador;
