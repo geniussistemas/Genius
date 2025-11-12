@@ -17,6 +17,8 @@ public class CommonAppDbContext : DbContext, ICommonAppDbContext
     public DbSet<Convenio> Convenios { get; set; }
     public DbSet<Operador> Operadores { get; set; }
 
+    public DbSet<OperadorPerfil> OperadorPerfis { get; set; }
+
     protected CommonAppDbContext(DbContextOptions options)
         : base(options) { }
 
