@@ -40,7 +40,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.App.Tests", "Genius.Api\Tests\Genius.Api.App.Tests\Genius.Api.App.Tests.csproj", "{7EF18B44-BF28-CE6C-4380-0E6F7CC57511}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.InterfaceAdapters.Tests", "Genius.Api\Tests\Genius.Api.InterfaceAdapters.Tests\Genius.Api.InterfaceAdapters.Tests.csproj", "{224CAEA5-44EB-611E-B135-A618BAB354FB}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Infraestructure.Tests", "Genius\Tests\Genius.Infraestructure.Tests\Genius.Infraestructure.Tests.csproj", "{5BF12C35-A6CF-4FE8-AEE6-0A4D845B1242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genius.Api.Infrastructure.Tests", "Genius.Api\Tests\Genius.Api.Infrastructure.Tests\Genius.Api.Infrastructure.Tests.csproj", "{CBCBD13A-6987-410F-A744-F746DAB582F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -244,6 +247,18 @@ Global
 		{5BF12C35-A6CF-4FE8-AEE6-0A4D845B1242}.Release|x64.Build.0 = Release|Any CPU
 		{5BF12C35-A6CF-4FE8-AEE6-0A4D845B1242}.Release|x86.ActiveCfg = Release|Any CPU
 		{5BF12C35-A6CF-4FE8-AEE6-0A4D845B1242}.Release|x86.Build.0 = Release|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Debug|x64.Build.0 = Debug|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Debug|x86.Build.0 = Debug|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Release|x64.ActiveCfg = Release|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Release|x64.Build.0 = Release|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Release|x86.ActiveCfg = Release|Any CPU
+		{CBCBD13A-6987-410F-A744-F746DAB582F6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -267,6 +282,7 @@ Global
 		{7EF18B44-BF28-CE6C-4380-0E6F7CC57511} = {434CD4B3-61CF-4A9A-AAB4-573652133496}
 		{224CAEA5-44EB-611E-B135-A618BAB354FB} = {434CD4B3-61CF-4A9A-AAB4-573652133496}
 		{5BF12C35-A6CF-4FE8-AEE6-0A4D845B1242} = {93DD2914-60E7-4C0C-A434-58EBE6FB8D16}
+		{CBCBD13A-6987-410F-A744-F746DAB582F6} = {434CD4B3-61CF-4A9A-AAB4-573652133496}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FF4A1AC5-43A4-462B-828C-F44708074AC2}
