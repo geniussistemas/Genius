@@ -1,3 +1,4 @@
+using Genius.Api.App.Contexts.AuthContext;
 using Genius.Api.App.Contexts.CaixaContext;
 using Genius.Api.App.Contexts.OperadorContext;
 
@@ -9,6 +10,7 @@ public static class AppContextsExtension
     {
         app.UseCaixaContext();
         app.UseOperadorContext();
+        app.UseAuthContext();
         return app;
     }
 }

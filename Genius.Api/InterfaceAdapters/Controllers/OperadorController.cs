@@ -24,7 +24,7 @@ namespace Genius.Api.InterfaceAdapters.Controllers
                 return result.Errors.ToArray();
 
             return new ObterUsuarioResponse
-        {
+            {
                 Usuarios = result.Value,
                 Quantidade = result.Value!.Count
             };

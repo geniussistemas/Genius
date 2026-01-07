@@ -16,7 +16,6 @@ namespace Genius.Api.App.Contexts.OperadorContext
             builder.Services.TryAddScoped<IOperadorRepository, OperadorRepository<AppDbContext>>();
             builder.Services.TryAddScoped<IObterListaUsuariosUseCase, ObterListaUsuariosUseCase>();
 
-
             return builder;
         }
 

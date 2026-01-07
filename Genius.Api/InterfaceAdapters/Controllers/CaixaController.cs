@@ -34,7 +34,7 @@ public class CaixaController(ICreateCaixaUseCase createUseCase, IObterConfigurac
     {
         if (numeroTerminal <= 0)
         {
-            return Error.Validation("CAIXA_TERMINAL_INVALIDO", "O número do terminal informado é inválido ou está ausente.");
+            return Error.Validation("CAIXA.TERMINAL_INVALIDO", "O número do terminal informado é inválido ou está ausente.");
         }
 
         var result = await obterUseCase.ExecutarAsync(numeroTerminal);

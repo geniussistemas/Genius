@@ -45,7 +45,8 @@ namespace Genius.Api.Infraestructure.Services
             {
                 new(ClaimTypes.NameIdentifier, idOperador.ToString()),
                 new(ClaimTypes.Name, usuario),
-                new(ClaimTypes.Role, perfil)
+                new(ClaimTypes.Role, perfil),
+                new("Terminal", terminal.ToString())
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretKey));

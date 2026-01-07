@@ -171,6 +171,8 @@ namespace Genius.Api.Infrastructure.Tests.Services
                 jwtToken.Claims,
                 c => c.Type == ClaimTypes.Role && c.Value == "Administrador"
             );
+
+            Assert.Contains(jwtToken.Claims, c => c.Type == "Terminal" && c.Value == "1");
         }
 
         [Fact]
@@ -228,6 +230,17 @@ namespace Genius.Api.Infrastructure.Tests.Services
                 jwtToken.Claims,
                 c => c.Type == ClaimTypes.NameIdentifier && c.Value == idOperador.ToString()
             );
+
+            Assert.Contains(
+               jwtToken.Claims,
+               c => c.Type == ClaimTypes.Name && c.Value == usuario
+           );
+            Assert.Contains(
+                jwtToken.Claims,
+                c => c.Type == ClaimTypes.Role && c.Value == perfil
+            );
+
+            Assert.Contains(jwtToken.Claims, c => c.Type == "Terminal" && c.Value == terminal.ToString());
         }
 
         #endregion
@@ -301,7 +314,6 @@ namespace Genius.Api.Infrastructure.Tests.Services
             Assert.Equal("Admin", principal.FindFirst(ClaimTypes.Role)?.Value);
         }
 
-
         [Fact]
         public void ValidarToken_DeveRetornarNull_QuandoTokenInvalido()
         {
@@ -336,7 +348,9 @@ namespace Genius.Api.Infrastructure.Tests.Services
             var jwtSection2 = new Mock<IConfigurationSection>();
 
             var secretKeySection2 = new Mock<IConfigurationSection>();
-            secretKeySection2.Setup(s => s.Value).Returns("OutraChaveCompletamenteDiferenteESegura123456789");
+            secretKeySection2
+                .Setup(s => s.Value)
+                .Returns("OutraChaveCompletamenteDiferenteESegura123456789");
 
             var issuerSection2 = new Mock<IConfigurationSection>();
             issuerSection2.Setup(s => s.Value).Returns("GeniusApi");
@@ -350,7 +364,9 @@ namespace Genius.Api.Infrastructure.Tests.Services
             jwtSection2.Setup(s => s.GetSection("SecretKey")).Returns(secretKeySection2.Object);
             jwtSection2.Setup(s => s.GetSection("Issuer")).Returns(issuerSection2.Object);
             jwtSection2.Setup(s => s.GetSection("Audience")).Returns(audienceSection2.Object);
-            jwtSection2.Setup(s => s.GetSection("ExpirationInSeconds")).Returns(expirationSection2.Object);
+            jwtSection2
+                .Setup(s => s.GetSection("ExpirationInSeconds"))
+                .Returns(expirationSection2.Object);
             config2.Setup(c => c.GetSection("JwtSettings")).Returns(jwtSection2.Object);
 
             var serviceComOutraChave = new TokenService(config2.Object);
@@ -383,12 +399,12 @@ namespace Genius.Api.Infrastructure.Tests.Services
 
             // Assert - Verifica se os dados foram preservados
             Assert.NotNull(principal);
-            Assert.Equal(idOperador.ToString(),
-                principal.FindFirst(ClaimTypes.NameIdentifier)?.Value);
-            Assert.Equal(usuario,
-                principal.FindFirst(ClaimTypes.Name)?.Value);
-            Assert.Equal(perfil,
-                principal.FindFirst(ClaimTypes.Role)?.Value);
+            Assert.Equal(
+                idOperador.ToString(),
+                principal.FindFirst(ClaimTypes.NameIdentifier)?.Value
+            );
+            Assert.Equal(usuario, principal.FindFirst(ClaimTypes.Name)?.Value);
+            Assert.Equal(perfil, principal.FindFirst(ClaimTypes.Role)?.Value);
         }
         #endregion
     }
